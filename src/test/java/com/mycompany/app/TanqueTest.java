@@ -34,7 +34,7 @@ public class TanqueTest {
 
         // Primer disparo
         soldado.disparar(tanque); // daño 1 * 50% = 0.5
-        assertEquals(1.5, tanque.getVida(), 0.01); // vida parcial
+        assertEquals(0, tanque.getVida(), 0.01); // vida parcial
 
         // Segundo disparo
         soldado.disparar(tanque); // otro 0.5
@@ -48,5 +48,16 @@ public class TanqueTest {
         int municionesAntes = tanque.getMuniciones();
         tanque.disparar(soldado);
         assertEquals(municionesAntes - 1, tanque.getMuniciones());
+    }
+
+     @Test
+    public void tanqueMuereContreDisparos() {
+        Infanteria soldado = new Infanteria();
+        Tanque tanque = new Tanque();
+
+        soldado.disparar(tanque); // primer disparo
+        assertTrue(tanque.estaVivo());
+      
+        assertEquals(2.0, tanque.getVida(), 0.01); // vida como double
     }
 }
