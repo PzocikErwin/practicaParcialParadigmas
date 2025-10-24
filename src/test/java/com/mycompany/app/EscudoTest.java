@@ -25,7 +25,7 @@ public class EscudoTest {
     @Test
     public void acorazadoRecibeDanioConEscudo() {
         Acorazado barco = new Acorazado();
-        Escudo escudo25 = new Escudo(0); // reduce daño 25%
+        Escudo escudo25 = new Escudo(25.0); // reduce daño 25%
         barco.equiparEscudo(escudo25);
 
         // simulamos daño de 1
@@ -33,6 +33,4 @@ public class EscudoTest {
         // daño final = 1 * 0.75 = 0.75
         assertEquals(2.25, barco.getVida(), 0.01); // vida reducida parcialmente
     }
-
-
 }
